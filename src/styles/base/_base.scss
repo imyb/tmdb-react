@@ -1,0 +1,29 @@
+@use '../utils' as *;
+
+:root {
+  @each $key, $value in $breakpoints {
+    --vw-num-#{$key}: #{remove-unit($value)};
+  }
+
+  @each $key, $value in $breakpoints {
+    --vw-#{$key}: #{remove-unit($value) * 1rem};
+  }
+}
+
+:where(html, body) {
+  height: 100%;
+}
+
+:where(html) {
+  font-size: 6.25%;
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+}
+
+:where(body) {
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, 'Malgun Gothic',
+    'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1600%;
+  background: #000;
+  color: #fff;
+}

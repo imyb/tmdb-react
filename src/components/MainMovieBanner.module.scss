@@ -1,0 +1,212 @@
+@use '@styles/utils' as *;
+
+.MainMovieBanner {
+  overflow: hidden;
+  position: relative;
+  padding-bottom: calc(300 / var(--vw-num-default) * 100%);
+  border: 10px solid var(--test);
+
+  @include media('>medium') {
+    min-height: 600rem;
+    padding-bottom: 0;
+  }
+
+  .carousel {
+    overflow: visible;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    @include media('>medium') {
+      width: 80%;
+    }
+
+    :global(.swiper-wrapper) {
+      display: flex;
+      width: 100%;
+      height: 100%;
+
+      .item {
+        flex: 1 0 auto;
+        width: auto;
+        height: 100%;
+
+        @include media('>medium') {
+          padding: 0 10rem;
+        }
+
+        .item-box {
+          position: relative;
+          width: 100%;
+          height: 100%;
+
+          @include media('>medium') {
+            overflow: hidden;
+            border-radius: 16rem;
+          }
+        }
+
+        .item-visual {
+          position: relative;
+          width: 100%;
+          height: 100%;
+
+          img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none;
+          }
+
+          &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+              15deg,
+              #000000 0%,
+              rgba(0, 0, 0, 0) 50%,
+              rgba(0, 0, 0, 0) 100%
+            );
+            pointer-events: none;
+          }
+        }
+
+        .item-body {
+          display: flex;
+          align-items: flex-end;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          padding: calc(24 / var(--vw-num-default) * 100%)
+            calc(16 / var(--vw-num-default) * 100%);
+          color: #fff;
+
+          @include media('>medium') {
+            padding: 32rem 32rem 40rem 32rem;
+          }
+        }
+
+        .item-content {
+          flex-grow: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          min-height: 40rem;
+        }
+
+        .item-title {
+          font-size: calc(20 / var(--vw-num-default) * 100vw);
+          line-height: normal;
+          text-shadow: 1rem 1rem #000;
+          word-break: keep-all;
+
+          @include media('>medium') {
+            font-size: 36rem;
+          }
+        }
+
+        .item-info {
+          margin-top: 2rem;
+          line-height: normal;
+
+          @include media('>medium') {
+            margin-top: 8rem;
+          }
+        }
+        .item-tagline {
+          font-size: 14rem;
+          color: rgba(255, 255, 255, 0.8);
+
+          @include media('>medium') {
+            font-size: 20rem;
+          }
+        }
+
+        .item-genres {
+          display: inline-flex;
+          margin-left: -2rem;
+          margin-right: -2rem;
+          margin-top: 2rem;
+          font-size: 12rem;
+          color: rgba(255, 255, 255, 0.6);
+          span {
+            margin: 0 2rem;
+
+            &::after {
+              content: '\a0\b7';
+            }
+
+            &:last-child {
+              &::after {
+                content: '';
+              }
+            }
+          }
+        }
+
+        .item-action {
+          margin-left: 20rem;
+
+          a {
+            display: inline-flex;
+            align-items: center;
+            height: 40rem;
+            padding: 10rem 20rem;
+            border: 1rem solid rgba(255, 255, 255, 0.8);
+            border-radius: 4rem;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(6px);
+            font-size: 14rem;
+            white-space: nowrap;
+            color: rgba(255, 255, 255, 0.8);
+          }
+        }
+      }
+    }
+  }
+
+  :global .swiper {
+    .swiper-button-next,
+    .swiper-button-prev {
+      display: none;
+      color: rgba(255, 255, 255, 0.8);
+
+      @include media('>medium') {
+        display: block;
+      }
+    }
+
+    .swiper-button-next {
+      right: 40rem;
+    }
+    .swiper-button-prev {
+      left: 40rem;
+    }
+
+    .swiper-pagination {
+      display: flex;
+      justify-content: center;
+
+      @include media('>medium') {
+        bottom: 16rem;
+      }
+
+      .swiper-pagination-bullet {
+        background: rgba(255, 255, 255, 0.3);
+        opacity: 1;
+      }
+      .swiper-pagination-bullet-active {
+        background: rgba(255, 255, 255, 1);
+        opacity: 1;
+      }
+    }
+  }
+}

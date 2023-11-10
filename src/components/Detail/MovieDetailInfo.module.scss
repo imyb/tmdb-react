@@ -1,0 +1,35 @@
+@use '@styles/utils' as *;
+
+.MoviDetailInfo {
+  padding: 16rem 10rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14rem;
+
+  @include media('>medium') {
+    padding-left: 32rem;
+    padding-right: 32rem;
+  }
+
+  .title {
+    font-size: 18rem;
+    color: #fff;
+  }
+
+  .metaitem {
+    &.genres {
+      span {
+        &::after {
+          content: '\a0\b7\ ';
+        }
+
+        &:last-child::after {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .overview {
+    margin-top: 8rem;
+  }
+}

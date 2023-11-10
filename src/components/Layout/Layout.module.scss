@@ -1,0 +1,9 @@
+@use '@styles/utils' as *;
+
+.container {
+  padding-top: 40rem;
+
+  @include media('>medium') {
+    padding-top: 70rem;
+  }
+}

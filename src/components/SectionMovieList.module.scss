@@ -1,0 +1,155 @@
+@use '@styles/utils' as *;
+
+.SectionMovieList {
+  position: relative;
+
+  & + .SectionMovieList {
+    margin-top: 40rem;
+  }
+
+  .heading {
+    padding-left: calc(8 / var(--vw-num-default) * 100%);
+    padding-bottom: 8rem;
+    .title {
+      font-size: 16rem;
+    }
+
+    @include media('>medium') {
+      padding: 0 32rem 16rem;
+      .title {
+        font-size: 20rem;
+        font-weight: 700;
+      }
+    }
+  }
+  .more {
+    position: absolute;
+    top: 2rem;
+    right: calc(8 / var(--vw-num-default) * 100%);
+    font-size: 14rem;
+
+    @include media('>medium') {
+      font-size: 16rem;
+    }
+  }
+  .content {
+    position: relative;
+
+    .carousel {
+      padding: 0 calc(4 / var(--vw-num-default) * 100%);
+
+      @include media('>medium') {
+        padding: 0 28rem;
+      }
+
+      :global(.swiper-wrapper) {
+        .item {
+          width: 30%;
+          max-width: 180rem;
+          height: 100%;
+          // padding: 0 10rem;
+          padding: 0 4rem;
+          justify-content: center;
+          align-items: center;
+
+          .item-box {
+            display: block;
+            height: 100%;
+          }
+
+          .item-img {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            padding-bottom: calc((750 / 500 * 100%));
+            border-radius: 8rem;
+            background: rgba(255, 255, 255, 0.1);
+
+            img {
+              overflow: hidden;
+              display: block;
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+            }
+          }
+          .item-title {
+            margin-top: 2rem;
+            padding: 0 2rem;
+            overflow: hidden;
+            white-space: nowrap;
+            font-size: 12rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-overflow: ellipsis;
+
+            @include media('>medium') {
+              margin-top: 4rem;
+              font-size: 14rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  :global .swiper {
+    .swiper-button-next,
+    .swiper-button-prev {
+      display: none;
+      top: 0;
+      bottom: auto;
+      width: 60rem;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      color: rgba(255, 255, 255, 0.8);
+
+      &:after {
+        position: absolute;
+        top: 50%;
+        transform: translate(0, calc(-50% - 21rem));
+      }
+
+      @include media('>medium') {
+        display: block;
+      }
+
+      &.swiper-button-disabled {
+        pointer-events: auto;
+      }
+    }
+
+    .swiper-button-next {
+      right: 0;
+      &:after {
+        left: 0;
+      }
+    }
+    .swiper-button-prev {
+      left: 0;
+      &:after {
+        right: 0;
+      }
+    }
+
+    .swiper-pagination {
+      display: flex;
+      justify-content: center;
+
+      @include media('>medium') {
+        bottom: 16rem;
+      }
+
+      .swiper-pagination-bullet {
+        background: rgba(255, 255, 255, 0.3);
+        opacity: 1;
+      }
+      .swiper-pagination-bullet-active {
+        background: rgba(255, 255, 255, 1);
+        opacity: 1;
+      }
+    }
+  }
+}

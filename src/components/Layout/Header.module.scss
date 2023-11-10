@@ -1,0 +1,90 @@
+@use '@styles/utils' as *;
+
+.header {
+  z-index: 800;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40rem;
+  padding: 0 10rem;
+  background: rgb(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+
+  @include media('>medium') {
+    height: 70rem;
+    padding: 0 32rem;
+  }
+
+  .heading {
+    display: flex;
+    align-items: center;
+    margin-right: 8rem;
+
+    @include media('>medium') {
+      margin-right: 16rem;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      font-size: 16rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 1);
+      text-shadow: 1rem 1rem 0rem rgba(255, 255, 255, 0.4);
+
+      @include media('>medium') {
+        font-size: 26rem;
+      }
+
+      a {
+        display: inline-flex;
+        align-items: center;
+        font: inherit;
+        color: inherit;
+      }
+
+      .tmdb-logo {
+        display: block;
+        width: 32rem;
+        margin-right: 8rem;
+
+        @include media('>medium') {
+          width: 48rem;
+          margin-right: 16rem;
+        }
+
+        img {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .nav {
+    .navlist {
+      display: flex;
+      .navitem {
+        margin: 0 5rem;
+        font-size: 14rem;
+        color: rgba(255, 255, 255, 0.6);
+
+        @include media('>medium') {
+          font-size: 18rem;
+        }
+
+        a {
+          padding: 10rem;
+          font: inherit;
+          color: inherit;
+
+          &:global(.active) {
+            color: rgba(255, 255, 255, 1);
+          }
+        }
+      }
+    }
+  }
+}
